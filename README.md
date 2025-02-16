@@ -1,10 +1,14 @@
-# Nuxt Minimal Starter
+# Nuxt3 i18n プロジェクト
 
-Look at the [Nuxt documentation](https://nuxt.com/docs/getting-started/introduction) to learn more.
+## 機能
 
-## Setup
+- 多言語対応（i18n）
+- TypeScriptサポート
+- Nuxt DevTools
 
-Make sure to install dependencies:
+## セットアップ
+
+依存関係のインストール:
 
 ```bash
 # npm
@@ -15,14 +19,11 @@ pnpm install
 
 # yarn
 yarn install
-
-# bun
-bun install
 ```
 
-## Development Server
+## 開発サーバー
 
-Start the development server on `http://localhost:3000`:
+`http://localhost:3000`で開発サーバーを起動:
 
 ```bash
 # npm
@@ -33,14 +34,37 @@ pnpm dev
 
 # yarn
 yarn dev
-
-# bun
-bun run dev
 ```
 
-## Production
+## 多言語対応（i18n）について
 
-Build the application for production:
+このプロジェクトでは[@nuxtjs/i18n](https://i18n.nuxtjs.org/)を使用して多言語対応を実装しています。
+
+### サポート言語
+
+- 英語 (en)
+- フランス語 (fr)
+
+### 使用例
+
+```vue
+<script setup>
+const { setLocale } = useI18n();
+</script>
+
+<template>
+  <!-- 言語切り替えボタン -->
+  <button @click="setLocale('en')">English</button>
+  <button @click="setLocale('fr')">Français</button>
+  
+  <!-- 翻訳テキストの表示 -->
+  <p>{{ $t('welcome') }}</p>
+</template>
+```
+
+## 本番環境用ビルド
+
+本番環境用にアプリケーションをビルド:
 
 ```bash
 # npm
@@ -51,12 +75,9 @@ pnpm build
 
 # yarn
 yarn build
-
-# bun
-bun run build
 ```
 
-Locally preview production build:
+本番環境ビルドのプレビュー:
 
 ```bash
 # npm
@@ -67,9 +88,6 @@ pnpm preview
 
 # yarn
 yarn preview
-
-# bun
-bun run preview
 ```
 
-Check out the [deployment documentation](https://nuxt.com/docs/getting-started/deployment) for more information.
+詳細は[Nuxtデプロイメントドキュメント](https://nuxt.com/docs/getting-started/deployment)をご確認ください。
